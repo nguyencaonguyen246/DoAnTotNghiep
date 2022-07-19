@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .form-input {
+            padding: 0 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            width: 100%;
+            height: 50px;
+            transition: 0.25s;
+        }
+
+        .form-input:focus {
+            border-color: #6a5af9;
+        }
+
+        .form-field {
+            position: relative;
+        }
+
+        .form-label {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 21px;
+            user-select: none;
+            /* thuộc tính chìm */
+            pointer-events: none;
+            color: #999;
+        }
+
+        .form-input:not(:placeholder-shown)+.form-label,
+        .form-input:focus+.form-label {
+            color: #6a5af9;
+            top: 0;
+            transition: 0.5s;
+            background-color: white;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        .draw-border {
+            box-shadow: inset 0 0 0 4px #58cdd1;
+            color: #58afd1;
+            -webkit-transition: color 0.25s 0.0833333333s;
+            transition: color 0.25s 0.0833333333s;
+            position: relative;
+        }
+
+        .draw-border::before,
+        .draw-border::after {
+            border: 0 solid transparent;
+            box-sizing: border-box;
+            content: '';
+            pointer-events: none;
+            position: absolute;
+            width: 0rem;
+            height: 0;
+            bottom: 0;
+            right: 0;
+        }
+
+        .draw-border::before {
+            border-bottom-width: 4px;
+            border-left-width: 4px;
+        }
+
+        .draw-border::after {
+            border-top-width: 4px;
+            border-right-width: 4px;
+        }
+
+        .draw-border:hover {
+            color: #ffe593;
+        }
+
+        .draw-border:hover::before,
+        .draw-border:hover::after {
+            border-color: #eb196e;
+            -webkit-transition: border-color 0s, width 0.25s, height 0.25s;
+            transition: border-color 0s, width 0.25s, height 0.25s;
+            width: 100%;
+            height: 100%;
+        }
+
+        .draw-border:hover::before {
+            -webkit-transition-delay: 0s, 0s, 0.25s;
+            transition-delay: 0s, 0s, 0.25s;
+        }
+
+        .draw-border:hover::after {
+            -webkit-transition-delay: 0s, 0.25s, 0s;
+            transition-delay: 0s, 0.25s, 0s;
+        }
+
+        .btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            line-height: 1.5;
+            font: 700 1.2rem 'Roboto Slab', sans-serif;
+            padding: 0.75em 2em;
+            letter-spacing: 0.05rem;
+            margin: 1em;
+            width: 13rem;
+        }
+
+        .btn:focus {
+            outline: 2px dotted #55d7dc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-field">
+        <input type="text" placeholder=" " class="form-input">
+        <label for="" class="form-label">Name</label>
+    </div>
+    <div>
+        <button class="btn draw-border">
+            Đăng nhập
+        </button>
+    </div>
+    <div>
+        <form>
+            <input type="date" min="1970-01-01" max="2030-12-31" value="2021-12-29"/>
+        </form>
+   
+    </div>
+</body>
+
+</html>
